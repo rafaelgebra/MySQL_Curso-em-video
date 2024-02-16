@@ -30,6 +30,48 @@ O banco de dados é composto de quatro(4) partes.
     4º Programas adicionais
 
 
-    <!--          Limguagem de exploração       -->
+<!--          Limguagem de exploração       -->
     Structured Query Language (SQL) -> é uma linguagem de consulta
         Nesse estudo vamos praticar a MySQL
+
+
+<!--        Criando Banco de dados - Aula 3           -->
+
+O objetivo do banco de dados é registrar instâncias separadas que tem caracteristicas semelhanças.
+
+Banco de dados são coleçoes de dados de caracteristicas separadas mas que estão organizados em locais especificos, esses locais é as tabelas e os dados que estão dentro das tabelas se chamam registros.
+    Resulmindo:
+        Banco de dados é conjunto de tabela e tabela é conjunto de registros
+        banco de dados -> tabela -> registros
+    
+Para criar o banco de dados usar o comando:
+    CREATE DATABASE cadastro; (CREATE DATABASE "Tudo em maiusculos"), (cadastro "é o nome do banco de dados")
+
+As tabelas contem caracteristicas padronizadas (essas caracteristicas são chamadas de campos)
+banco de dados -> tabela -> registros -> (registros é composto por campos)
+
+
+<!--            Tipos primitivos no MySQL           -->
+
+Alguns tipos primitivos.
+
+    Numéricos
+        Subdivisão: Inteiro ->  TinyInt, SmallInt, Int, MediumInt, BigInt
+                    Real    ->  Decimal, Floar, Double, Real
+                    Lógico  ->  Bit, Boolean
+
+    Data/Tempo
+        Subdivisão: ->  Date, DateTime, TimeStamp, Time, Year
+
+    Literal
+        Subdivisão: Caracteres  ->  Char, Varchar
+                    texto       ->  TinyText, Text, MediumText, LangText
+                    Binário     ->  TinyBlob, Blod, MediumBlod, LongBlod
+                    coleção     ->  Enum, Set
+
+    Espacial
+        Subdivisão: ->  Geometry, Point, Polygon, MultiPolygon
+
+
+
+        sudo apt install mysql-client-core-8.0 
