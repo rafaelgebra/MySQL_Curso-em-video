@@ -72,22 +72,23 @@ Alguns tipos primitivos.
     Espacial
         Subdivisão: ->  Geometry, Point, Polygon, MultiPolygon
 
+<!--                Aulta 04 Melhorando e estruturaa do BD              -->
+
+not null <!-- Com esse comando o campo é obrigado a preencher os dados-->
 
 
+<!--            Exemplo de Banco de dadmos mais organisado-->
 
+create database cadastro
+default character set utf8
+default collate utf8_general_ci;
 
-
-use cadastro;
 create table pessoas (
-nome varchar (30),
-idade tinyint (3),
-sexo char (1),
-peso float,
-altura float,
-nacionalidade varchar (20)
-);
+nome varchar (30) not null,
+nascimento date,
+sexo enum('M', 'F'), <!--com a coleção enum só vai aceitar os valores declarados. Ex: ('M', 'F'). Tem que estar e maiúsculo e entre aspas simples --> 
+peso decimal (5,2), <!-- o promemeiro número significa que serão 5 casas ao todo, o seguindo número indica quantidade de número que vai ficar a pós a (,) Ex: 102,35-->
+altura decimal (3,2),
+nascimento varchar(20) default 'Brasil'
 
-
-sudo apt-get autoremove
-sudo apt-get autoclean 
-sudo apt-get clean
+) default charset = utf8;
