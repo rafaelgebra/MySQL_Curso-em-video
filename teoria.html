@@ -95,3 +95,15 @@ primary key (id)
 
 ) default charset = utf8;
 
+<!--            Aula 5  Inserindo Dados na Tabela (INSERT INTO)     -->
+
+    Usando o comando (INSERT INTO)
+    insert into pessoas
+    (id, nome, nascimento, sexo, peso, altura, nacionalidade)
+    values
+    (default, 'Creuza', '1920-12-30', 'F', '50.2', '1.65', default);
+
+    <!--  Esse comando pode ser simplicado (se a ordem dos valores seguirem a ordem da tabela)-->
+
+        insert into pessoas values
+        (default, 'Creuza', '1920-12-30', 'F', '50.2', '1.65', default);
