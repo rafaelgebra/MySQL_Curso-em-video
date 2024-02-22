@@ -1,0 +1,25 @@
+1 -     create database Projeto_2 <!-- Comando para abrir banco de dados-->
+        default character set utf8 <!-- Comando para acentuação da lingua portuguesa-->
+        default collate utf8_general_cia; <!-- Comando para acentuação da lingua portuguesa-->
+
+2 -     use Projero_2 <!-- Comando Para usar o banco de dados-->
+
+3 -     create table pessoa ( <!-- Comando criar tabela no banco de dados-->
+        id int not null auto_increment,<!-- -->
+        nome varchar (30) not null,
+        nascimento date,
+        sexo enum ('M', 'F'),
+        peso decimal (5,2),
+        altura decimal (3,2),
+        nacionalidade varchar (30) default 'Brasil',
+        primary key (id)
+        )default charset = utf8; <!-- Configuranção de caracter lingua Portugueas-->
+
+4 -     insert into pessoas
+        (id, nome, nascimento, sexo, peso, altura, nacionalidade)
+        values
+        (default, 'Ana', '1975-12-22', 'F', '52.3', '1.70', 'EUA'),
+        (default, 'Pedro', '2000-07-17', 'M', '52.3', '1.45', default),
+        (default, 'Maria1', '1999-05-30', 'F', '75.9', '1.70', 'Portugal');
+
+        select * from pessoas;
