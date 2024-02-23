@@ -5,14 +5,14 @@
 2 -     use Projero_2 <!-- Comando Para usar o banco de dados-->
 
 3 -     create table pessoa ( <!-- Comando criar tabela no banco de dados-->
-        id int not null auto_increment,<!-- -->
+        id int not null auto_increment,<!-- Nesse caso o id será o campo identidicador de forma númerica, por isso (int), (not null é para força a digitação), (a constante auto_increment é para o sistema adicionar o número do cadastro "id" automaticamente)-->
         nome varchar (30) not null,
         nascimento date,
         sexo enum ('M', 'F'),
         peso decimal (5,2),
         altura decimal (3,2),
         nacionalidade varchar (30) default 'Brasil',
-        primary key (id)
+        primary key (id) <!--para adicionar como chave primaria por aqui na ultima linha-->, <!-- Campo de chave (key) primaria, dessa forma podemos colocar o id como chave primaria-->
         )default charset = utf8; <!-- Configuranção de caracter lingua Portugueas-->
 
 4 -     insert into pessoas
@@ -21,5 +21,25 @@
         (default, 'Ana', '1975-12-22', 'F', '52.3', '1.70', 'EUA'),
         (default, 'Pedro', '2000-07-17', 'M', '52.3', '1.45', default),
         (default, 'Maria1', '1999-05-30', 'F', '75.9', '1.70', 'Portugal');
+
+        select * from pessoas;
+
+        <!-- se a ordem das informações for a mesmo ordem que foi definida no Banco de dados, pode ser simplificado o comando.-->
+        insert into pessoas values
+        (default, 'Rafael', '1988-08-72', 'M', '75.3', '1.70', default);
+        <!-- E além disso pode ser acrescentado os dados tudo de uma vez usando o mesmo comando (insert into pessoas values)-->
+        (default, 'Claudio', '1988-08-27', 'M', '75.3', '2.70', default),
+        (default, 'Thatiane', '1988-01-17', 'F', '55.3', '1.70', default),
+        (default, 'Thiago', '1988-08-27', 'M', '70.3', '2.70', default);
+
+5 -     Auterando tabela
+
+        desc pessoas;
+
+        alter table pessoas
+        add column profissao varchar (10) AFTER nome;
+
+        alter table pessoas
+        drop column profissao;
 
         select * from pessoas;

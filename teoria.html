@@ -107,3 +107,32 @@ primary key (id)
 
         insert into pessoas values
         (default, 'Creuza', '1920-12-30', 'F', '50.2', '1.65', default);
+
+<!--        Aula 6 Alterando a estrutura da tabela      -->
+
+        desc pessoas; <!-- Descrever a tabela pessoas-->
+
+        alter table pessoas<!-- Comando para entrar e alterar a tabela pessoa-->
+        add column profissao varchar (10) AFTER nome;<!-- comando para adicionar a coluna profissão na tabela pessoas, AFTER (é para escolher o lugar que quer adicionar), (Após essa coluna 'nome' é o lugar aonde será adicionado a coluna profissão)-->
+
+        ALTER TABLE pessoas<!-- Comando para entrar e alterar a tabela pessoa-->
+        ADD COLUMN <!-- A palavra column é opcional -->codigo INT FIRST;<!-- Para adicionar na primeira posição da tabela a coluna desejada-->
+
+        ALTER TABLE pessoas<!-- Comando para entrar e alterar a tabela pessoa-->
+        ADD COLUMN <!-- A palavra column é opcional -->endereço; <!-- Se não indicar o local da coluna, será acrescentado no fim da tabela-->
+
+        alter table pessoas<!-- Comando para entrar e alterar a tabela pessoa-->
+        drop column profissao;<!-- Esclui a coluna desejada-->
+
+        ALTER TABLE pessoas<!-- Comando para entrar e alterar a tabela pessoa-->
+        <!-- MODIFY permite alterar os tipos primitivos e as constates-->
+        MODIFY COLUMN profissao VARCHAR (20) NOT NULL DEFAULT '';<!-- comando para MODIFICAR a coluna, NOT NULL "indica que o tem que acrescentar os dados, DEFAULT '' para não dar conflito no banco de dados pois o campo não pode ficar sem informação com o DEFAULT como vasio dai aceita" -->
+
+        ALTER TABLE pessoas<!-- Comando para entrar e alterar a tabela pessoa-->
+        <!-- Para mudar o nome da coluna ai tem que usar CHANGE-->
+        CHANGE COLUMN profissao <!--Tem que informar o nome antigo e o novo ('profissao' é o nome antigo e 'prof' o novo)--> prof VARCHAR (20) <!-- para manter as configurações como tava antes de alterar o nome, tem que adicionar como estava anteriormente 'NOT NULL DEFAULT'-->NOT NULL DEFAULT;
+
+        ALTER TABLE pessoas <!-- Comando para entrar e alterar a tabela pessoa-->
+        RENAME TO gafanhotos; <!-- Modifica o nome da tabela -->
+ 
+        select * from pessoas;
