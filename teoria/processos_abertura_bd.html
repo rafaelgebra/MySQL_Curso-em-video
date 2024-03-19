@@ -1,10 +1,13 @@
-1 -     create database Projeto_2 <!-- Comando para abrir banco de dados-->
+1 -     <!--            Criando Banco de DADOS                  -->
+        create database cadastro <!-- Comando para abrir banco de dados-->
         default character set utf8 <!-- Comando para acentuação da lingua portuguesa-->
         default collate utf8_general_cia; <!-- Comando para acentuação da lingua portuguesa-->
 
 2 -     use Projero_2 <!-- Comando Para usar o banco de dados-->
 
-3 -     create table pessoa ( <!-- Comando criar tabela no banco de dados-->
+3 -     <!--            Montar tabela                           -->
+
+        create table pessoa ( <!-- Comando criar tabela no banco de dados-->
         id int not null auto_increment,<!-- Nesse caso o id será o campo identidicador de forma númerica, por isso (int), (not null é para força a digitação), (a constante auto_increment é para o sistema adicionar o número do cadastro "id" automaticamente)-->
         nome varchar (30) not null,
         nascimento date,
@@ -13,9 +16,10 @@
         altura decimal (3,2),
         nacionalidade varchar (30) default 'Brasil',
         primary key (id) <!--para adicionar como chave primaria por aqui na ultima linha-->, <!-- Campo de chave (key) primaria, dessa forma podemos colocar o id como chave primaria-->
-        )default charset = utf8; <!-- Configuranção de caracter lingua Portugueas-->
+        )default charset = utf8; <!-- Configuranção de caracter lingua Portugueas PARA A TABELA-->
 
-4 -     insert into pessoas
+4 -     <!--            Inserindo dados na TABELA               -->
+        insert into pessoas
         (id, nome, nascimento, sexo, peso, altura, nacionalidade)
         values
         (default, 'Ana', '1975-12-22', 'F', '52.3', '1.70', 'EUA'),
