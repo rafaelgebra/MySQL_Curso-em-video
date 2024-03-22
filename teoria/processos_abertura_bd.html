@@ -41,13 +41,26 @@
         Os campos no mysql é chamado de coluna.
         
         Para alterar uma coluna usar os comando:
-                alter table pessoas
-                add column profissao varchar (10) AFTER nome;
+                alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
+                add column profissao varchar (10) AFTER nome;<!-- Depois da tabela selecionada usar o comando "add column (nome da coluna/) varchar (), "-->
+                        para escolher a posição da coluna pode usar AFTER para adicionar a coluna depois de uma selecionada "nome". ->
+                        Ex1:    add column proficao varchar (10) after nome; <!-- Escolher a posição da coluna na tabela. Porém é adicionada depois de uma coluna selecionada-->
+                        Ex2:    add column profição varchar (10) int first; <!-- Primeiro campo da tabela usar o first-->   
+                        Ex3:    add column profição varchar (10); <!-- Por padão é adicionada sempre na ultima posição-->
 
-        alter table pessoas
-        drop column profissao;
+                Para alterar a extrutura da definição usar o modify.
+                        Alter table
 
-        select * from pessoas;
+
+        Para eliminar uma coluna usar o comando drop column:
+                alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
+                drop column profissao; <!-- Isso faz com que sejá exclúido-->
+
+
+
+
+
+        select * from pessoas; <!-- Mostra tudo referente a pessoas -->
 
 
         desc/describe pessoas; <!-- desc é mesmo que describe = descreva ....... -->
