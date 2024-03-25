@@ -48,9 +48,17 @@
                         Ex2:    add column profição varchar (10) int first; <!-- Primeiro campo da tabela usar o first-->   
                         Ex3:    add column profição varchar (10); <!-- Por padão é adicionada sempre na ultima posição-->
 
-                Para alterar a extrutura da definição usar o modify.
-                        Alter table
+                Para alterar a extrutura da definição usar o modify. <!-- Modifica coluna-->
+                        Alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
+                        modify column profissao varchar (20); <!-- Esse comando consegue alterar o tipo primitivo do campo--> <!-- column nesse caso é opcional--> <!-- Com o not null, força acrescentar dados "porém o sistema não aceita campo nulo", para resolver isso é spo acrescentar um default vazio '' = modify column profissao varchar (20) not nul default '';-->
 
+                Para alterar o nome de uma coluna usar change column. <!-- Modifica coluna-->
+                        alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
+                        change column profissao prof varchar (30); <!-- para alterar o nome da coluna tem que por o nome velho e o nome novo = profissao (nome antigo) prof (nome novo)-->
+                
+                Para alterar a tabela INTEIRA. <!-- Modifica a tabela inteira-->
+                        alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
+                        rename to gafanhatos; <!-- altera o nome da tabela inteira -->
 
         Para eliminar uma coluna usar o comando drop column:
                 alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
