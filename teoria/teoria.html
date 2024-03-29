@@ -77,21 +77,21 @@ Alguns tipos primitivos.
 not null <!-- Com esse comando o campo é obrigado a preencher os dados-->
 
 
-<!--            Exemplo de Banco de dadmos mais organisado-->
+<!--            Exemplo de Banco de dados mais organisado-->
 
-create database cadastro
+create database cadastro <!-- Aqui é a criação do banco de dados-->
 default character set utf8
 default collate utf8_general_ci;
 
-create table pessoas (
-id int not null auto_increment,
+create table pessoas ( <!-- Aqui é criada a tabela, no caso o nome da tabela é pessoas -->
+id int not null auto_increment, <!-- Com esse comando cada pessoa tem um unico registo-->
 nome varchar (30) not null,
 nascimento date,
 sexo enum('M', 'F'), <!--com a coleção enum só vai aceitar os valores declarados. Ex: ('M', 'F'). Tem que estar e maiúsculo e entre aspas simples --> 
 peso decimal (5,2), <!-- o promemeiro número significa que serão 5 casas ao todo, o seguindo número indica quantidade de número que vai ficar a pós a (,) Ex: 102,35-->
 altura decimal (3,2),
 nascimento varchar(20) default 'Brasil',
-primary key (id)
+primary key (id) <!-- Aqui é usado o id como chave primaria -->
 
 ) default charset = utf8;
 
