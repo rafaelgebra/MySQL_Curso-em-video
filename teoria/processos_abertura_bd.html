@@ -1,11 +1,18 @@
-1 -     <!--            Criando Banco de DADOS                  -->
+        
+        
+        select * from pessoas; <!-- Mostra tudo referente a pessoas -->
+
+
+        desc/describe pessoas; <!-- desc é mesmo que describe = descreva ....... -->
+
+<!--            Criando Banco de DADOS                  -->
         create database cadastro <!-- Comando para abrir banco de dados-->
         default character set utf8 <!-- Comando para acentuação da lingua portuguesa-->
         default collate utf8_general_cia; <!-- Comando para acentuação da lingua portuguesa-->
 
-2 -     use Projero_2 <!-- Comando Para usar o banco de dados-->
+        use Projero_2 <!-- Comando Para usar o banco de dados-->
 
-3 -     <!--            Montar tabela                           -->
+ <!--            Montar tabela                           -->
 
         create table pessoa ( <!-- Comando criar tabela no banco de dados-->
         id int not null auto_increment,<!-- Nesse caso o id será o campo identidicador de forma númerica, por isso (int), (not null é para força a digitação), (a constante auto_increment é para o sistema adicionar o número do cadastro "id" automaticamente)-->
@@ -18,7 +25,7 @@
         primary key (id) <!--para adicionar como chave primaria por aqui na ultima linha-->, <!-- Campo de chave (key) primaria, dessa forma podemos colocar o id como chave primaria-->
         )default charset = utf8; <!-- Configuranção de caracter lingua Portugueas PARA A TABELA-->
 
-4 -     <!--            Aula 5 - Inserindo dados na TABELA               -->
+<!--            Aula 5 - Inserindo dados na TABELA               -->
                         <!-- Completo -->
         insert into pessoas
         (id, nome, nascimento, sexo, peso, altura, nacionalidade)
@@ -36,7 +43,7 @@
         (default, 'Thatiane', '1988-01-17', 'F', '55.3', '1.70', default),
         (default, 'Thiago', '1988-08-27', 'M', '70.3', '2.70', default);
 
-5 -     <!--             Aula 6 - Alterando estrutura da tabela                      -->
+<!--             Aula 6 - Alterando estrutura da tabela                      -->
 
         Os campos no mysql é chamado de coluna.
         
@@ -84,8 +91,74 @@
                         add primary key(idcurso) <!-- essa opção é para caso esqueça de adinionar a chave primaria na criação da tabela. -->
 
 
+<!--            Aula 7 - Manipulação de linhas-->
 
-        /select * from pessoas; <!-- Mostra tudo referente a pessoas -->
+
+        <!--  Aula 7 Manipulando linhas- UPDATE, DELETE TRUNCATE  -->
+    
+                Podemos dizer que as linhas é mesmo que tuplas ou registros.
+                Podemos dizer que as colunas é o mesmo que campos ou atributos.
+
+                insert into cursos values <!-- itens adicionados a tabela cursos    -->
+                ('1','HTML4','Curso de HTML5','40','37','2014'),
+                ('2','Algoritmos','Lógica de Prorgamação','20','15','2014'),
+                ('3','Photoshop','Dicas de Photoshop CC','10','8','2014'),
+                ('4','PGP','Curso de PHP para iniciantes','40','20','2010'),
+                ('5','Jarva','Introdução à Linguagem Java','10','29','2000'),
+                ('6','MySQL','Banco de Dados MySQL','30','15','2016'),
+                ('7','Word','Curso completo de Word','40','30','2016'),
+                ('8','Sapateado','Danças Rítimicas','40','30','2018'),
+                ('9','Cozinha Árabe','Aprenda a fazer Kibe','40','30','2018'),
+                ('10','YouTuber','Gerar polêmica e ganhar inscritos','5','2','2018');
 
 
-        desc/describe pessoas; <!-- desc é mesmo que describe = descreva ....... -->
+        Comando para manipular linha incorreta.
+                UPDATE cursos <!--  Para modificar a linha PRIMEIRO-->
+                SET nome = 'HTML5' <!-- SET = Configurar a coluna "nome" HTML5 é o novo nome do conteúdo da coluna-->
+                WHERE idcurso = '1' <!-- Isso é para identificar "ONDE" a linha em que deve fazer a alteração -->, <!-- Foi usado idcurso, porque é a 'primary key' e por não existir mais de uma 'primary key' é certaza que vai alterar o local correto.  -->
+                LIMIT 1; <!-- Esse parametro é para limitar a alteração apenas para uma linha ou a quantidade de limitada-->
+
+                UPDATE = Atualize
+                SET = Configure
+                WHERE = Onde
+                LIMIT 1;
+
+                Ex:
+                        UPDATE cursos <!-- Modificar SÓ UM item de uma linha-->
+                        SET nome = 'HTML5'
+                        WHERE idcurso = '1';
+
+
+                        UPDATE cursos <!-- Modificar MAIS DE UM item da mesma linha-->
+                        SET nome = 'PHP', ano = '2015'
+                        WHERE idcurso = '4';
+
+                        UPDATE cursos
+                        SET ano = '2050', carga = '800'
+                        WHERE ano = '2018';
+
+                Ex: limitar a somente uma linha
+                        UPDATE cursos
+                        SET nome = 'JAVA', carga = '40', ano = '2015'
+                        WHERE idcurso = '5'
+                        LIMIT 1;
+
+                        UPDATE cursos
+                        SET ano = '2018', carga = '0'
+                        WHERE ano = '2050'
+                        LIMIT 1;
+
+                        DELETE FROM cursos
+                        WHERE idcurso = '8';
+                Ex: limitar a somente duas linha
+                        DELETE FROM cursos
+                        WHERE ano = '2050'
+                        LIMIT 2;
+
+                TRUNCATE TABLE cursos;<!-- DELETA todas as informações da tabela, MAS não deleta a tabela-->
+
+                SELECT * FROM cursos;
+
+
+
+
