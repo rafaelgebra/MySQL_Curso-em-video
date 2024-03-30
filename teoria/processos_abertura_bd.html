@@ -2,8 +2,8 @@
         
         select * from pessoas; <!-- Mostra tudo referente a pessoas -->
 
-
         desc/describe pessoas; <!-- desc é mesmo que describe = descreva ....... -->
+
 
 <!--            Criando Banco de DADOS                  -->
         create database cadastro <!-- Comando para abrir banco de dados-->
@@ -65,7 +65,7 @@
                 
                 Para alterar a tabela INTEIRA. <!-- Modifica a tabela inteira-->
                         alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
-                        rename to gafanhatos; <!-- altera o nome da tabela inteira -->
+                        rename to gafanhotos; <!-- altera o nome da tabela inteira -->
 
         Para eliminar uma coluna usar o comando drop column:
                 alter table pessoas <!-- Tanto para adicionar como para remover uma coluna, primeiro tem que escolher a tabela. -->
@@ -74,7 +74,7 @@
 
         <!--            Criar uma segunda tabela para encrementar a primeira               -->
 
-                create table cursos if not exists (<!-- O (if ot exists) ou (if exist) é um parametro que só permite criar/apagar uma tabela/banco de dados se ele não exister, caso o contrario não faz nada. -->
+                create table if not exists cursos (<!-- O (if ot exists) ou (if exist) é um parametro que só permite criar/apagar uma tabela/banco de dados se ele não exister, caso o contrario não faz nada. -->
                 nome varchar (30) not null unique, <!-- o unique não é o mesmo que primery key, porque o primery key é uma unique mais tem mais caracteristicas --> <!-- com o parametro unique, esta mostrando para o banco de dados que não vai poder tem dois nomes iguais nesse banco-->
                         descricao text, 
                         carga int unsigned, <!-- unsigned significa sem sinal, isso é usado "ganhar espaço no disco porque economisa um bit"-->
@@ -150,14 +150,25 @@
 
                         DELETE FROM cursos
                         WHERE idcurso = '8';
-                Ex: limitar a somente duas linha
+
+
+        Comando para DELETAR linha.
+
+                delete from cursos <!-- delete = apague, from = da, tabela cursos-->
+                where idcurso = '8' <!-- where = onde -->
+                limit 1; <!-- limita a quantidade de linhas afetadas -->
+
+                Ex:
                         DELETE FROM cursos
                         WHERE ano = '2050'
                         LIMIT 2;
 
+        Removendo todas as linhas de uma tabela
+
                 TRUNCATE TABLE cursos;<!-- DELETA todas as informações da tabela, MAS não deleta a tabela-->
 
-                SELECT * FROM cursos;
+
+
 
 
 
