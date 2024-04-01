@@ -170,8 +170,42 @@
                 TRUNCATE TABLE cursos;<!-- DELETA todas as informações da tabela, MAS não deleta a tabela-->
 
 
+<!--            Aula 11 - Select (Parte 1)                                                           -->
 
+Algumas funcões do comando select em banco de dados.
+    select * from cursos, 
+    order by nome desc;
+    select nome, carga, ano from cursos; 
 
+            <!-- Seleciona todas as colunas. -->
+            select * from cursos;
 
+            <!-- Seleciona somente os campos/colunas desejadas. -->
+            select nome,  carga, ano from cursos;
+                    select nome, carga, ano from cursos
+                    order by nome;
+                            
+    
+            <!-- também da para selecionar por linha. -->
 
+            select * from cursos
+            where ano = '2016'
+            order by nome;
 
+            <!-- Representação dos operadores relacionais. -->
+
+            =           Igual
+            =>          Maior Igual
+            <=          Menor Igual
+            >           Maior       
+            <           Menor
+            != ou <>    Diferênte
+            select nome, carga, ano from cursos
+            where ano => 2016
+            order by ano, nome;
+
+            <!-- Operador Between. -->
+
+            select nome, ano from cursos 
+            where ano between 2014 and 2016 
+            order by ano asc, nome desc; 

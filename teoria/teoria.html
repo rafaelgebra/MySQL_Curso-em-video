@@ -226,6 +226,56 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
 
     Assistir as aulas 9 e 10
 
-<!--    -->
+<!--            Aula 11 - SELECT (Parte 1)                              -->
 
+    Algumas funcões do comando select em banco de dados.
+    select * from cursos, <!-- Seleciona todos os parametros da função select. -->
+    order by nome; <!-- Ordena o campo/coluna selecionada. "ordena por padrão, de forma crescente". para alterar colocar desc depois do nome do campo/coluna. --> <!-- asc = ascending, significa - ascendente. desc = descending,sifnifica - decrescente -->
+    order by nome desc; <!-- Ordena de forma decrescente. -->
+    select nome, carga, ano from cursos; <!-- Seleciona somente somente os campo/colunas desejadas, -->
+
+            <!-- Seleciona todas as colunas. -->
+            select * from cursos;
+
+            <!-- Seleciona somente os campos/colunas desejadas. -->
+            select nome,  carga, ano from cursos;
+                    <!-- Para ordenar da forma que achar melhor é só acrescentar order by. -->
+                    select nome, carga, ano from cursos
+                    order by nome;
+                            <!-- Caso queira mudar a "direção" crescente ou descrescente usar no fim depois do nome do campo/coluna asc ou desc. -->
     
+    
+            <!-- também da para selecionar por linha. -->
+
+            select * from cursos <!-- seleciona todas as colunas. Mas também pode escolher as colunas-->
+            where ano = '2016' <!-- Filtra as linhas que só tem o ano escolhido, nesse caso o ano é 2016-->
+            order by nome <!-- Ordem da descrição. -->
+
+            <!-- Representação dos operadores relacionais. -->
+
+            =           Igual
+            =>          Maior Igual
+            <=          Menor Igual
+            >           Maior       
+            <           Menor
+            != ou <>    Diferênte
+            select nome, carga, ano from cursos
+            where ano => 2016
+            order by ano, nome;
+
+            <!-- Operador Between. -->
+
+            select nome, ano from cursos <!-- Esta celefionando os campos especificos a serem mostrados. -->
+            where ano between 2014 and 2016 <!-- between = entre, and = e. --> <!-- é um filtro selecionando entre um determinado valor-->
+            order by ano asc, nome desc; <!-- Usando o asc e desc, para ordenar as colundas tando do lado de "fora" como por "dentro" delas-->
+
+            <!-- Operador In. -->
+
+            A grande diferença é que no IN mostra os valores especificos, já no BETWEEN pode selecionar faixas de valores.
+
+            select nome, descricao, ano from cursos
+            where ano in (2014, 2016) <!-- Usando o in o resultado será tudo que tiver o ano 2014 e 2016, com o between vai mostar de 2014 até 2016. -->
+            order by ano;
+
+            
+
