@@ -226,7 +226,7 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
 
     Assistir as aulas 9 e 10
 
-<!--            Aula 11 - SELECT (Parte 1)                              -->
+<!--            Aula 11, 12 e 13 - SELECT                              -->
 
     Algumas funcões do comando select em banco de dados.
     select * from cursos, <!-- Seleciona todos os parametros da função select. -->
@@ -269,6 +269,17 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
             where ano between 2014 and 2016 <!-- between = entre, and = e. --> <!-- é um filtro selecionando entre um determinado valor-->
             order by ano asc, nome desc; <!-- Usando o asc e desc, para ordenar as colundas tando do lado de "fora" como por "dentro" delas-->
 
+            <!-- Operador Not-->
+
+            Com esse operador pode fazer a negativa.
+                Ex:
+                select * from cursos
+                where nome not like 'P%'
+
+                select * from cursos            
+                where not nome = 'PHP'
+
+
             <!-- Operador In. -->
 
             A grande diferença é que no IN mostra os valores especificos, já no BETWEEN pode selecionar faixas de valores.
@@ -277,5 +288,29 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
             where ano in (2014, 2016) <!-- Usando o in o resultado será tudo que tiver o ano 2014 e 2016, com o between vai mostar de 2014 até 2016. -->
             order by ano;
 
+            <!-- Operador like.     like = Paracido-->
+            select * from cursos
+            where nome like '%A' <!-- O % significa nem um ou varios caracteres, e a posição do % é de extrema importância ele é considerado um caracter coringa. -->
+                ex: no inicio.
+                    select * from cursos
+                    where nome like 'A%'; <!-- Procura qualquer "palavra" que começa com A. -->
+                ex: no meio 
+                    select * from cursos
+                    where nome like '%A%'; <!-- Procura qualquer "palavra" que tenha no meio a "palavra" A--> <!-- Mas também se aplica no começo e no fim-->
+                ex: no fim
+                    select * from cursos
+                    where nome like '%A'; <!-- Procura qualquer "palavra" que termina com A-->
             
+            Outro Exemplo de caracter coringo é o _ underline. <!-- Aonde tem o underline é obrigatorio ter alguma coisa--> <!-- cara underlaine é a nescessidade de alguma coisa. -->
+                Ex: no inicio.
+                    select * from cursos
+                    where nome like '_A'; <!-- O urderline obriga ter um caracter no inicio. -->
+                Ex: no meio.
+                    select * from cursos
+                    where nome like 'P_P' <!-- O underlaine obriga ter o caracter ou qualquer coisa no meio. -->
+                Ex: no fim.
+                    select * from cursos
+                    where nome like 'PH_' <!-- O underline obriga ter o caracter ou qualquer coisa no fim.  -->
 
+
+                    
