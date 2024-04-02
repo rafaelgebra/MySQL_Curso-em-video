@@ -1,0 +1,141 @@
+
+
+1 - "Uma lista com o nome de totas as gafanhotos mulher."
+
+        Comando:
+            select nome, sexo from gafanhotos
+            where sexo like 'F'
+            ornder by nome;
+
+        Resultado:
+            'Ana Carolina Hernandes', 'F'
+            'Ana Carolina Mendes', 'F'
+            'Andreia Delfino', 'F'
+            'Bruna Santos', 'F'
+            'Bruna Teles', 'F'
+            'Daniele Moledo', 'F'
+            'Dayana Dias', 'F'
+            'Elaine Nunes', 'F'
+            'Janaína Couto', 'F'
+            'Janaina Oliveira', 'F'
+            'Jarismar Andrade', 'F'
+            'Josiane Dutra', 'F'
+            'Jucinei Teixeira', 'F'
+            'Karine Ribeiro', 'F'
+            'Leila Martins', 'F'
+            'Letícia Neves', 'F'
+            'Monique Precivalli', 'F'
+            'Nara Matos', 'F'
+            'Rita Pontes', 'F'
+            'Rosana Kunz', 'F'
+            'Silvana Albuquerque', 'F'
+            'Talita Nascimento', 'F'
+        
+
+2 - "Uma lista com os dados de todos aqueles que nasceram entre 01/01/2000  e 31/12/2015"
+
+        Comando:
+            select nascimento, nome from gafanhotos 
+            where nascimento between like '2000-01-01' and '2015-12-31' 
+            order by nascimento;
+
+        Resultado:
+            '2000-01-08', 'Denilson Barbosa da Silva'
+            '2000-01-30', 'Bruno Torres'
+            '2000-03-03', 'Diogo Padilha'
+            '2000-05-23', 'Philppe Oliveira'
+            '2000-06-23', 'Jarismar Andrade'
+            '2000-08-08', 'Robson Rodolpho'
+            '2000-12-15', 'Ana Carolina Mendes'
+            '2001-01-07', 'Isaias Buscarino'
+            '2001-05-18', 'Guilherme de Sousa'
+            '2005-02-22', 'Carlos Camargo'
+            '2006-08-11', 'Daniele Moledo'
+            '2007-01-09', 'Roberto Luiz Debarba'
+            '2009-10-30', 'Neriton Dias'
+            '2010-01-01', 'Marcos Dissotti'
+            '2010-08-01', 'Carlisson Rosa'
+            '2011-05-07', 'Elvis Schwarz'
+            '2011-11-20', 'Márcio Mello'
+            '2012-03-12', 'Silvio Ricardo'
+            '2013-12-30', 'Monique Precivalli'
+
+
+3 - "Uma lista com o nome de todos os homens que trabalham como Programadores"
+
+        Comando:
+            select nome, sexo, profissao from gafanhotos
+            where profissao like '%Programador%' and sexo = 'M' <!-- também poderia ser feito assim. where profissao = 'Programador' and sexo = 'M'; -->
+            order by nome;
+
+        Resultado:
+            'Allan Silva', 'M', 'Programador'
+            'Anderson Rafael', 'M', 'Programador'
+            'Andre Santini', 'M', 'Programador'
+            'André Schmidt', 'M', 'Programador'
+            'Carlos Camargo', 'M', 'Programador'
+            'Emerson Gabriel', 'M', 'Programador'
+            'Jackson Telles', 'M', 'Programador'
+            'Márcio Mello', 'M', 'Programador'
+            'Raian Porto', 'M', 'Programador'
+            'Ruan Valente', 'M', 'Programador'
+            'Silvio Ricardo', 'M', 'Programador'
+
+
+
+4 - "Uma lista com os dados de todas as mulheres que nasceram no Brasil e que têm seu nome iniciando com a letra J".
+
+        Comando:
+            select nome, sexo, nacionalidade from gafanhotos
+            where nome like 'J%' and sexo = 'F' and nacionalidade = 'Brasil'
+            order by nome;
+
+        Resultado:
+            'Jarismar Andrade', 'F', 'Brasil']
+
+5 - "Uma lista com o nome e nacionalidade de todos o homens que têm Silva no nome, não nasceram no Brasil e pesam menos de 100Kg"
+
+        Comando:
+            select nome, sexo, nacionalidade, peso from gafanhotos
+            where nome like '%Silva%' and sexo = 'M' and not nacionalidade 'Brasil' and peso < '100'
+            order by nome;
+    
+        Resultado:
+            'Herisson Silva', 'M', 'EUA'
+
+6 - "Qual é a maior altura entre gafanhotos homens que moram no Brasil"
+
+        Comando:
+            select nome, sexo, nacionalidade, max(altura) from gafanhoso <!-- Com mais detalhes fica. select nome, sexo, nacionalidade, max(altura) from gafanhoso-->
+            where sexo = 'M' and nacionalidade = 'Brasil';
+
+        Resultado:
+            '2.35'
+
+7 - "Qual é a média de peso dos gafanhotos cadastrados"
+
+        Comando:
+            select avg(peso) gafanhotos;
+        
+        Resultado:
+            '73.967705'
+
+8 - "Qual é o menor peso entre as gafanhotos mulheres que nasceram fora do brasil entre 01/01/1990 e 31/12/2000"
+
+        Comando:
+            select nome,nascimento, nacionalidade, min(peso)from gafanhotos
+            where not nacionalidade = 'Brasil' and sexo = 'F' and nascimento between '1990-01-01' and '2000-12-31';
+        Resultado:
+            'Talita Nascimento', '1999-12-30', 'Portugal', '35.90'
+
+9 - "Quantas gafanhotas mulheres têm mais de 1.90m de altura?"
+
+        Comando:
+            select count(nome) from gafanhotos
+            where sexo = 'F' and altura >= '1.90'; 
+
+        Resultado:
+            '5'
+
+
+

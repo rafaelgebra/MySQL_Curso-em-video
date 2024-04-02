@@ -312,5 +312,77 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
                     select * from cursos
                     where nome like 'PH_' <!-- O underline obriga ter o caracter ou qualquer coisa no fim.  -->
 
+    <!--       Função de distinção - DISTINCT               -->
+    Com o distinct consegue "filtrar" e mostrar só um resultado se as respostas são iguais.
+        Ex:
+            select distinct nacionalidade gafanhotos
+            order by nacionalidade;
+            RESULTADO: <!-- Usando o distinc esse é o resuldato. Mostra o conteúdo filtrado sem somar, mostra somente os resultados "distingui". -->
+                'Alemanha'
+                'Angola'
+                'Brasil'
+                'Canadá'
+                'EUA'
+                'França'
+                'Irlanda'
+                'Itália'
+                'Japão'
+                'Moçambique'
+                'Portugal'
+                <!-- caso não use o disctinc o resultado seria bem diferênte, os nomes iguais iriam aparecer. -->
+            
+    <!--        Função de agregação -  -->
+    Com as funções de agregação podemos facilitar o resultado.
+    Em qualquer "filtragem" de dados pode por o campo desejado antes das funções.
 
-                    
+        select nome count(totaulas) from cursos; <!-- com menos filtros. -->
+                        ou
+        select nome count(totaulas) from cursos where ano = '2016' <!-- Com mais filtros. -->
+
+            Algumas funções:
+                count()
+                max()
+                min()
+                sum()
+
+            Ex: count (*)
+                select count(*) from cursos; <!-- Não precisa ser o * dentro dos () pode ser o nome do campo. Ex: select count(carga) from cursos;-->
+                Resultado:
+                    '30'
+
+            Ex: max(*)
+                select max(carga) from cursos; <!-- esse exemplo mostra como é fácio de achar o resultado do valor máximo de uma campo inteiro. -->
+                Resultado:
+                    '35'
+
+                select max(totaulas) from cursos where ano = '2016'; <!-- Esse exemplo mostra como usar o where para filtrar valores em um período e pegar o valor máximo dentro desse período-->
+                resuldato:
+                    '35'
+            Ex: min(*)
+                select min(carga) from cursos; <!-- esse exemplo é para pegar o valor minimo de uma coluna-->
+                Resultado:
+                    '10'
+
+                select min(totaulas) from crusos where ano = '2016'; <!-- Esse exemplo mostra como filtrar o resultado por período e mostrar o valor minimo dentro desse período-->
+                Resultado
+                    '15'
+
+            Ex: min(*)
+                select sum(totaulas) from cursos;
+                resultado:
+                    '1090'
+                
+                select sum(totaulas) from cursos where ano = '2016';
+                resuldato:
+                    '95'
+
+            Ex: avg(*)
+                select avg(totaulas) from cursos;
+                Resultado:
+                    '36.3333'
+                
+                select avg(totaulas) from cursos where ano = '2016';
+                resultado:
+                    '23.950'
+
+
