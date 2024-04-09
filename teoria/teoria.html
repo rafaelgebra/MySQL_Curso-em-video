@@ -386,3 +386,69 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
                     '23.950'
 
 
+    <!-- Função distinct - distinção-->
+        Para essa função não importa a quantidade mas sim a distinção entre ele.
+            Ele vai deixar sómente um de cada valor.
+
+            EX: 
+                use cadastro;
+                select distinct carga from cursos
+                order by carga;
+
+            Resultado:
+                '10'
+                '15'
+                '20'
+                '30'
+                '35'
+                '40'
+                '50'
+                '60'
+            
+    <!-- Função GRUOP BY - Agrupando-->
+        Para essa função o importênte é agrupar os valores, dependendo do resultado até parece com a função distinc mas não tem nada a ver um com o outro.
+        
+            EX:
+                use cadastro;
+                select carga from cursos
+                group by carga;
+            Resultado:
+                '10'
+                '15'
+                '20'
+                '30'
+                '35'
+                '40'
+                '50'
+                '60'
+
+
+            EX:
+                use cadastro;
+                select carga, count(nome) from cursos
+                group by carga;
+
+            Resultado:
+                '10', '1'
+                '15', '1'
+                '20', '4'
+                '30', '8'
+                '35', '1'
+                '40', '9'
+                '50', '1'
+                '60', '5'
+
+
+    <!-- Função GROUp BY + HAVING -->
+
+            EX:
+                select carga, count(nome) from cursos
+                group by carga
+                having count(nome) > 3;
+
+            Resultado:
+                '20', '4'
+                '30', '8'
+                '40', '9'
+                '60', '5'
+                
