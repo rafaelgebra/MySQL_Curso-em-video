@@ -392,7 +392,7 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
 
             EX: 
                 use cadastro;
-                select distinct carga from cursos
+                select distinct carga from cursos <!-- usar o distinct depois do select-->
                 order by carga;
 
             Resultado:
@@ -412,6 +412,7 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
                 use cadastro;
                 select carga from cursos
                 group by carga;
+                
             Resultado:
                 '10'
                 '15'

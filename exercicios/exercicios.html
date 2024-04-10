@@ -1,4 +1,4 @@
-
+        <!--                Exercícios 1               -->
 
 1 - "Uma lista com o nome de totas as gafanhotos mulher."
 
@@ -136,6 +136,65 @@
 
         Resultado:
             '5'
+
+
+        <!--                Exercício 2            -->
+
+
+
+1 - "Uma lista com as profissões dos gafanhotos e seus respectivos quantitativos"
+
+        Comando:
+            use cadastro;
+            select profissao, count(*) from gafanhotos
+            group by profissao;
+
+        Resultado:
+            'Ator', '6'
+            'Auxiliar Administrat', '13'
+            'Dentista', '7'
+            'Empreendedor', '7'
+            'Farmacêutico', '2'
+            'Médico', '3'
+            'Professor', '7'
+            'Programador', '16'
+            
+2 - "Quantaos gafanhotos homens e quantas mulheres nasceram após 01/jan/2005?"
+
+        Comando:
+            use cadastro;
+            select sexo, count(*) from gafanhotos
+            where nascimento >= '2005-01-01'
+            group by sexo;
+
+        Resultado:
+            'M', '8'
+            'F', '2'
+
+3 - "Uma lista com os gafanhotos que nasceram fora do Brasil, mostrando o pais que origem e o total de pessoas nascidas lá. Só nos interessando os países que tiver mais de 3 gafanotos com essa nacionalidade."
+
+        Comando:
+            use cadastro;
+            select nacionalidade, count(*) from gafanhotos
+            where nacionalidade != 'Brasil'
+            group by nacionalidade
+            having count(nacionalidade) > 3;
+
+        Resultado:
+            'Angola', '4'
+            'Canadá', '4'
+            'EUA', '8'
+            'Portugal', '8'
+
+4 - "Uma lista agrupado pela altura dos gafanhotos, mostrando quantas pessoas pesam mais de 100Kg e que estão acima da média de altura de todos os cadastrados."
+
+        Comando:
+
+        Resultado:
+
+        
+
+
 
 
 
