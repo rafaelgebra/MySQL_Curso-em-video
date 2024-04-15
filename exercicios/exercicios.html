@@ -189,9 +189,22 @@
 4 - "Uma lista agrupado pela altura dos gafanhotos, mostrando quantas pessoas pesam mais de 100Kg e que estão acima da média de altura de todos os cadastrados."
 
         Comando:
+            use cadastro;
+            select altura, nome, peso from gafanhotos
+            where peso >= '100'
+            group by altura
+            having altura > (select avg(altura) from gafanhotos);
 
         Resultado:
 
+            '1.76', 'Robson Rodolpho', '110.10'
+            '1.87', 'Paulo Batista', '110.12'
+            '1.97', 'Guilherme de Sousa', '132.70'
+            '1.99', 'Daniele Moledo', '101.30'
+            '2.19', 'Philppe Oliveira', '105.10'
+            '2.22', 'Paulo Narley', '120.10'
+            '2.35', 'Tiago Ulisses', '150.30'
+            
         
 
 
