@@ -453,3 +453,65 @@ primary key (id) <!-- Aqui é usado o id como chave primaria -->
                 '40', '9'
                 '60', '5'
                 
+<!--        Aula 14 - Modelo Relacional         -->
+
+        Uma ENTIDADE para o banco de dados é como se fosse um contêiner onde é colocados dados sobre alguma coisa.
+            O contêiner gafanhotos vai vai conter dados de alunos.
+            
+        O ATRIBUTO no banco de dados é os dados.
+
+"Retangulo se chama"ENTIDADE        ATRIBUTOS
+         ____________________    
+        |                    |      °id
+        |                    |      °nome    
+        |     GAFANHOTOS     |      °profissao
+        |                    |      °nascimento
+        |____________________|      °sexo
+                  |                 °peso
+                  |                 °altura
+                  |                 °nacionalidade
+                  | <- "ligação"
+                  |
+                 /\
+                /  \    
+               /    \      "Losango se chama RELACIONAMENTO"          
+               \    /
+                \  /
+                 \/
+                  |
+                  | <- "ligação"                  
+         _________|___________
+        |                    |      °idcurso                       
+        |                    |      °nome
+        |       CURSO        |      °descricao
+        |                    |      °carga
+        |____________________|      °totaula
+                                    °ano
+
+                Toda ENTIDADE possui uma coleção de ATRIBUTOS definidos, esses ATRIBUTOS vão corpor os dados que compoe cada um desses elementos que esta dentro dessa ENTIDADE.
+
+
+    Dentro do banco de dados em modelo relacional a chave primaria é de extrema importância.
+        A relação entre ENTIDADE se chama RELACIONAMENTO.
+
+
+        Nesse exemplo a cima é conhecido como DER "diagrama entidadde relacionamento".
+
+         ____________                            ___________
+        | GAFANHOTOS |N         /\             N|   CURSO   |
+        |      1     |         /  \             |   HRML5   |
+        |      2     |        /    \            |   PHP     |
+        |      3     |       /      \           |   JAVA    |
+        |      4     |       \      /           |   Word    |
+        |      5     |        \    /            |   PYTHON  |
+        |      6     |         \  /             |   JS      |
+        |______7_____|          \/              |___CSS3____|
+
+        Quando o mesmo gafanhotos faz muitos curso, isso é chamado de (N para N) o Essa ligação de uma tabela com a outra é chamada de cardinalidade, Mas tem outras CARDINALIDADE.
+            um para muitos.
+            um para um. 
+            muitos para muitos.
+
+<!--            Aula - 15 Chave Estrangeiras e JOIN         -->
+
+        
